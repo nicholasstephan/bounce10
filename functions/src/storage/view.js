@@ -1,3 +1,5 @@
+// https://cloud.google.com/run/docs/authenticating/public
+
 const {onRequest} = require("firebase-functions/v2/https");
 const { getStorage } = require('firebase-admin/storage');
 const { getFirestore, Timestamp } = require('firebase-admin/firestore');
@@ -203,7 +205,7 @@ module.exports = onRequest(async (req, res) => {
       const acceptHeader = req.header('Accept');
       const webpAccepted = acceptHeader?.indexOf('image/webp') !== -1;
 
-      // We opinionated enough to make it webp only.
+      // We're opinionated enough to make it webp only.
       // https://sharp.pixelplumbing.com/api-output#toformat
       // https://dev.to/dbanisimov/building-image-cdn-with-firebase-15ef
       const transformed = sharp()

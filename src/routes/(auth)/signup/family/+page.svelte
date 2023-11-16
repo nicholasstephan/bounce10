@@ -12,8 +12,6 @@
     where: [['parents', 'array-contains', $auth?.id]],
   });
 
-  $: console.log($children);
-
   async function addChild() {
     if(loading) {
       return;
@@ -24,8 +22,6 @@
       parents: [$auth?.id],
       status: "ACTIVE"
     });
-
-    console.log('added', doc);
     
     goto(`/signup/family/${doc.id}/info`);
   }
@@ -46,7 +42,7 @@
       {#each $children as child}
         <a class="child" href="/signup/family/{child.id}/info">
           <img src="{url(child.avatar)}" alt="" class="avatar"/>
-          <p class="name">{child.name}</p>
+          <p class="name">{child.name || ""}</p>
         </a>
       {/each}
       <button on:click={addChild} class="new-button">
@@ -113,6 +109,7 @@
     object-fit: cover;
     object-position: center center;
     margin: 0 0 16px 0;
+    background-color: var(--grey-light);
   }
 
   .child .name {
