@@ -1,0 +1,57 @@
+<svg id="eIJiWaUOytQ1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 320 480" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+  <style>
+    <![CDATA[
+    #eIJiWaUOytQ2_to {
+      animation: eIJiWaUOytQ2_to__to 1000ms ease-in-out infinite normal forwards
+    }
+
+    @keyframes eIJiWaUOytQ2_to__to {
+      0% {
+        offset-distance: 0%
+      }
+
+      50% {
+        offset-distance: 50%
+      }
+
+      100% {
+        offset-distance: 100%
+      }
+    }
+
+    #eIJiWaUOytQ2_ts {
+      animation: eIJiWaUOytQ2_ts__ts 1000ms linear infinite normal forwards
+    }
+
+    @keyframes eIJiWaUOytQ2_ts__ts {
+      0% {
+        transform: scale(1, 1.1)
+      }
+
+      40% {
+        transform: scale(1, 0.999992)
+      }
+
+      50% {
+        transform: scale(1.378083, 0.548101)
+      }
+
+      60% {
+        transform: scale(1.000001, 1)
+      }
+
+      100% {
+        transform: scale(1, 1.1)
+      }
+    }
+    ]]>
+  </style>
+  <g id="eIJiWaUOytQ2_to"
+    style="offset-path:path('M160,103.427767C160,196.951812,160,415.174584,160,415.174584C160,415.174584,160,196.951812,160,103.427767');offset-rotate:0deg">
+    <g id="eIJiWaUOytQ2_ts" transform="scale(1,1.102921)">
+      <ellipse rx="93.776224" ry="93.776224" transform="translate(0,0)" fill="#f83843" stroke-width="0" />
+    </g>
+  </g>
+  <rect width="187.552448" height="13.426574" rx="0" ry="0" transform="translate(66.223776 466.573426)" fill="#333" stroke-width="0" />
+</svg>
