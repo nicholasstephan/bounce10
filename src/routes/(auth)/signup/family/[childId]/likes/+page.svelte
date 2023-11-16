@@ -23,7 +23,7 @@
 
 	function toggle(like) {
 		if (!$child.likes) {
-			$child.likes = [];
+			$child.likes = [like];
 		} else if ($child.likes?.includes(like)) {
 			$child.likes = $child.likes.filter((l) => l != like);
 		} else {

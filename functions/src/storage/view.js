@@ -4,8 +4,6 @@ const { getFirestore, Timestamp } = require('firebase-admin/firestore');
 const sharp = require('sharp');
 
 module.exports = onRequest(async (req, res) => {
-
-  console.log('generating placeholder');
   
   // http://localhost:5000/file/VRaJD8v8Dvw4oI7d7pvY?thumbnail=true&width=800
   

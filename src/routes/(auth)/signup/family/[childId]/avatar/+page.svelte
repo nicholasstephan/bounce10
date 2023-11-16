@@ -56,6 +56,7 @@
     max-width: calc(100vw - 48px);
     background: #e5e5e5;
     overflow: hidden;
+    cursor: pointer;
   }
 
   .avatar img {

@@ -9,6 +9,6 @@ npm run firebase
 and starting the vite dev server:
 
 ```
-npm run dev
+npm run app
 ```
 

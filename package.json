@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"firebase": "firebase emulators:start",
-		"dev": "vite dev",
+		"app": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
