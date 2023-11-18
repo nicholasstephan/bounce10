@@ -1,8 +1,8 @@
-11:41:40.157 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
-11:41:40.366 [main] INFO com.firebase.server.forge.App$ - Listening at 0.0.0.0:9000
-11:41:53.406 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - bounce-10-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 145ms, init: 0ms
-11:41:53.473 [NamespaceSystem-blocking-namespace-operation-dispatcher-6] INFO com.firebase.core.namespace.StateManager - Namespace bounce-10-default-rtdb status Active to Active
-11:43:24.650 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
-11:43:24.656 [NamespaceSystem-akka.actor.default-dispatcher-8] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: bounce-10-default-rtdb
-11:43:24.664 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for bounce-10-default-rtdb
-11:43:24.669 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.
+17:43:43.395 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+17:43:43.582 [main] INFO com.firebase.server.forge.App$ - Listening at 0.0.0.0:9000
+17:43:54.337 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO com.firebase.core.namespace.NamespaceActor - bounce-10-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 135ms, init: 0ms
+17:43:54.401 [NamespaceSystem-blocking-namespace-operation-dispatcher-6] INFO com.firebase.core.namespace.StateManager - Namespace bounce-10-default-rtdb status Active to Active
+21:06:40.968 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
+21:06:41.000 [NamespaceSystem-akka.actor.default-dispatcher-11] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: bounce-10-default-rtdb
+21:06:41.016 [NamespaceSystem-akka.actor.default-dispatcher-11] INFO com.firebase.core.namespace.NamespaceActor - stopped namespace actor for bounce-10-default-rtdb
+21:06:41.024 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.

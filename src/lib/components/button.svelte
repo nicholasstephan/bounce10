@@ -29,7 +29,7 @@
   .button {
     position: relative;
     appearance: none;
-    display: block;
+    display: inline-block;
     padding: 16px 24px;
     border: 0;
     border-radius: 4px;

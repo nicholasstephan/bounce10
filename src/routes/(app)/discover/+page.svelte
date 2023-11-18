@@ -2,13 +2,14 @@
   import { Loading } from '$lib/components';
 </script>
 
-<main>
+<h1>Discover</h1>
+<div>
   <Loading message="Coming Soon"/>
-</main>
+</div>
 
 <style>
 
-  main {
+  div {
     padding: 240px 0;
   }
 

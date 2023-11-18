@@ -13,6 +13,10 @@
 
 }
 
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 html, body {
   padding: 0;
   margin: 0;
@@ -26,6 +30,14 @@ body {
 
 p, a, span, button {
   font-family: 'Jost', sans-serif;
+}
+
+p {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+button {
   font-weight: 400;
   font-size: 14px;
 }

@@ -1,14 +1,19 @@
 <script>
-  import { Loading } from '$lib/components';
+  import { Loading, Button } from '$lib/components';
 </script>
 
-<main>
+<h1>Account</h1>
+<nav>
+  <Button href="/logout">Log out</Button>
+</nav>
+
+<div>
   <Loading message="Coming Soon"/>
-</main>
+</div>
 
 <style>
 
-  main {
+  div {
     padding: 240px 0;
   }
 

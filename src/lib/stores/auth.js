@@ -77,7 +77,10 @@ export default {
 
 export function login(email, password) {
   user = null;
-  return signInWithEmailAndPassword(getAuth(), email, password);
+  watchUser();
+  if(email && password) {
+    return signInWithEmailAndPassword(getAuth(), email, password);
+  }
 }
 
 export async function register(email, password, data) {
