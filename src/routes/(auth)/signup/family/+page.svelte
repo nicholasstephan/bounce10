@@ -54,10 +54,6 @@
       <Button href="/discover">Get Started</Button>
     </nav>
 
-  {:else}
-
-    <Loading/>
-
   {/if}
 </Card>
 

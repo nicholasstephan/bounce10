@@ -1,7 +1,16 @@
-export { default as Button } from './button.svelte';
-export { default as Card } from './card.svelte';
-export { default as Input } from './input.svelte';
-export { default as InputEmail } from './input-email.svelte';
-export { default as InputPhone } from './input-phone.svelte';
-export { default as InputPassword } from './input-password.svelte';
-export { default as Loading } from './loading.svelte';
+/* UI */
+
+export { default as Card } from './ui/card.svelte';
+export { default as Loading } from './ui/loading.svelte';
+export { default as Tab } from './ui/tab.svelte';
+
+
+/* Forms */
+
+export { default as Button } from './forms/button.svelte';
+export { default as Input } from './forms/input.svelte';
+export { default as InputDate } from './forms/input-date.svelte';
+export { default as InputEmail } from './forms/input-email.svelte';
+export { default as InputPhone } from './forms/input-phone.svelte';
+export { default as InputPassword } from './forms/input-password.svelte';
+export { default as InputSlider } from './forms/input-slider.svelte';

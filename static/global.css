@@ -11,6 +11,11 @@
   --green: #5c9256;
   --blue: #3a7fc9;
 
+  --money-score-green: #5d9158;
+  --fish-blue: #3a7fc9;
+  --value-mapping-red: #f93941;
+
+
 }
 
 * {
@@ -35,6 +40,7 @@ p, a, span, button {
 p {
   font-weight: 400;
   font-size: 14px;
+  line-height: 1.2em;
 }
 
 button {
@@ -56,6 +62,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
   font-family: 'Jost', sans-serif;
   font-weight: 500;
+  line-height: 1.2em;
 }
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {

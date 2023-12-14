@@ -1,16 +1,18 @@
 <script>
   import { Loading } from '$lib/components';
+
+  import NextSteps from '$lib/components/activities/next-steps.svelte';
+
 </script>
 
-<h1>Discover</h1>
-<div>
-  <Loading message="Coming Soon"/>
+<div class="container">
+  <NextSteps/>
 </div>
 
 <style>
 
-  div {
-    padding: 240px 0;
+  .container {
+    padding: 64px 0;
   }
 
 </style>

@@ -3,6 +3,7 @@
   export let href = "";
   export let loading = false;
   export let error = false;
+  export let color = "var(--red)";
 
   $: tag = href ? "a" : "button";
 
@@ -17,6 +18,7 @@
   class="button"
   class:loading={!!loading}
   class:error={!!error}
+  style="--color: {color};"
 >
   <div class="content">
     <slot></slot>
@@ -33,7 +35,7 @@
     padding: 16px 24px;
     border: 0;
     border-radius: 4px;
-    background-color: var(--red);
+    background-color: var(--color);
     color: white;
     font-size: 14px;
     line-height: 16px;

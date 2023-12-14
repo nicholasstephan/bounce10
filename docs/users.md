@@ -5,10 +5,10 @@ User data is stored in firestore `/users/{user id}`. User ids are synced with fi
 
 | Field       | Description
 | ---         | ---
-| name
-| email
-| phone
-| permissions
+| name        |
+| email       |
+| phone       |
+| permissions | Array of permission strings associated with this user.
 
 
 ## Permissions

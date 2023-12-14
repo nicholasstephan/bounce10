@@ -2,7 +2,7 @@
 
   import auth, { isLoggedIn, register, logout } from '$lib/stores/auth';
 	import { goto } from '$app/navigation';
-  import { Card, Input, Button, Loading } from '$lib/components';
+  import { Card, Input, InputPassword, InputEmail, InputPhone, Button, Loading } from '$lib/components';
 
   let name = "";
   let email = "";
@@ -66,10 +66,10 @@
     <h2>Create an Account</h2>
       
     <Input placeholder="Name" bind:value={name}/>
-    <Input placeholder="Email" bind:value={email}/>
-    <Input placeholder="Phone" bind:value={phone}/>
-    <Input placeholder="Password" bind:value={password}/>
-    <Input placeholder="Confirm Password" bind:value={confirmPassword}/>
+    <InputEmail placeholder="Email" bind:value={email}/>
+    <InputPhone placeholder="Phone" bind:value={phone}/>
+    <InputPassword placeholder="Password" bind:value={password}/>
+    <InputPassword placeholder="Confirm Password" bind:value={confirmPassword}/>
 
     <div style="flex:1"/>
     

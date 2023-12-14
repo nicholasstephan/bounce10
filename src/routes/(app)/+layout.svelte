@@ -1,4 +1,5 @@
 <script>
+  import auth from '$lib/stores/auth';
   import { page } from '$app/stores';
   import { login, isLoggedIn } from '$lib/stores/auth';
 	import { onMount } from 'svelte';
@@ -11,12 +12,10 @@
   let isNavbarOpen = false;
   
   function hideNavbar() {
-    console.log('hiding navbar');
     isNavbarOpen = false;
   }
   
   async function showNavbar() {
-    console.log('showing navbar')
     isNavbarOpen = true;
     setTimeout(() => {
       document.addEventListener('click', hideNavbar, { once:true });
@@ -84,7 +83,7 @@
 
 
 <a href="/account" class="account">
-  <div class="name">Brian Jacobs</div>
+  <div class="name">{$auth?.name || ""}</div>
   <div class="avatar">
     <i class="fa-solid fa-user"></i>
   </div>

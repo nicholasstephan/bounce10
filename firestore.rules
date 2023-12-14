@@ -3,7 +3,35 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /{document=**} {
-      allow read, write: if false;
+      allow read, write: if true;
+    }
+
+    match /activity/{activityId} {
+      allow get, list: 
+        if true;
+
+      allow update: 
+        if true;
+
+      allow create:
+        if true;
+    }
+
+    match /children/{childId} {
+      allow get, list: 
+        if debug(
+          debug(request.auth.uid) in debug(get(/databases/$(database)/documents/children/$(childId)).data.parents)
+        )
+        || true;
+
+      allow update: 
+        if request.auth.uid in get(/databases/$(database)/documents/children/$(childId)).data.parents
+        && request.auth.uid in request.resource.data.parents
+        || true;
+
+      allow create:
+        if request.auth.uid in request.resource.data.parents
+        || true;
     }
 
     match /storage/{document=**} {
@@ -13,20 +41,14 @@ service cloud.firestore {
     match /users/{userId} {
       allow read: 
         if request.auth.uid == userId 
-        || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.permissions.adminUsers == true;
+        || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.permissions.adminUsers == true
+        || true;
 
       allow write: 
         if request.auth.uid == userId 
         || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.permissions.adminUsers == true
-        || !exists(/databases/$(database)/documents/users/$(userId));
-    }
-
-    match /children/{document=**} {
-      allow get, list, update: 
-        if request.auth.uid in resource.data.parents;
-
-      allow create:
-        if request.auth.uid in request.resource.data.parents;
+        || !exists(/databases/$(database)/documents/users/$(userId))
+        || true;
     }
   }
 }
