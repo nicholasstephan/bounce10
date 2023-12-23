@@ -4,6 +4,7 @@
   export let loading = false;
   export let error = false;
   export let color = "var(--red)";
+  export let textColor = "var(--grey-light)";
 
   $: tag = href ? "a" : "button";
 
@@ -18,7 +19,7 @@
   class="button"
   class:loading={!!loading}
   class:error={!!error}
-  style="--color: {color};"
+  style="--color: {color}; --text-color: {textColor};"
 >
   <div class="content">
     <slot></slot>
@@ -36,7 +37,7 @@
     border: 0;
     border-radius: 4px;
     background-color: var(--color);
-    color: white;
+    color: var(--text-color);
     font-size: 14px;
     line-height: 16px;
     text-decoration: none;

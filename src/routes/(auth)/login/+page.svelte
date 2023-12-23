@@ -20,7 +20,6 @@
       await login(email, password);
     }
     catch(e) {
-      console.log(e.code)
       if(e.code == "auth/invalid-email") {
         error = "Please enter a valid email address.";
       }

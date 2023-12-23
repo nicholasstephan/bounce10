@@ -38,18 +38,20 @@
   <img src="/img/logo-white.svg" alt="Bounce 10" class="logo"/>
 
   <nav>
-    <a href="/discover" class:active={path == 'discover'}>
-      <i class="fa-solid fa-fw fa-house"></i> 
-      <span>Discover</span>
-    </a>
-    <a href="/profile" class:active={path == 'profile'}>
-      <i class="fa-solid fa-fw fa-piggy-bank"></i> 
-      <span>My Family Profile</span>
-    </a>
-    <a href="/activities" class:active={path == 'activities'}>
-      <i class="fa-solid fa-fw fa-map"></i>
-      <span>Activities</span>
-    </a>
+    {#if $auth?.permissions?.manageChildren}
+      <a href="/discover" class:active={path == 'discover'}>
+        <i class="fa-solid fa-fw fa-house"></i> 
+        <span>Discover</span>
+      </a>
+      <a href="/profile" class:active={path == 'profile'}>
+        <i class="fa-solid fa-fw fa-piggy-bank"></i> 
+        <span>My Family Profile</span>
+      </a>
+      <a href="/activities" class:active={path == 'activities'}>
+        <i class="fa-solid fa-fw fa-map"></i>
+        <span>Activities</span>
+      </a>
+    {/if}
     <a href="/library" class:active={path == 'library'}>
       <i class="fa-solid fa-fw fa-book-blank"></i>
       <span>Library</span>
@@ -58,23 +60,34 @@
       <i class="fa-solid fa-fw fa-users"></i>
       <span>Community</span>
     </a>
-    <a href="/reading" class:active={path == 'reading'}>
-      <i class="fa-solid fa-fw fa-bookmark"></i>
-      <span>Reading List</span>
-    </a>
+    {#if $auth?.permissions?.adminUsers}
+      <a href="/users" class:active={path == 'users'}>
+        <i class="fa-solid fa-user"></i>
+        <span>Users</span>
+      </a>
+    {/if}
+    {#if $auth?.permissions?.manageChildren}
+      <a href="/reading" class:active={path == 'reading'}>
+        <i class="fa-solid fa-fw fa-bookmark"></i>
+        <span>Reading List</span>
+      </a>
+    {/if}
     <a href="/about" class:active={path == 'about'}>
       <i class="fa-kit fa-fw fa-icon"></i>
       <span>About B10</span>
     </a>
+    
   </nav>
 
-  <div class="navigator">
-    <div class="avatar">
-      <i class="fa-solid fa-user"></i>
+  {#if $auth?.permissions?.manageChildren}
+    <div class="navigator">
+      <div class="avatar">
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <div class="label">My Navigator:</div>
+      <div class="name">Jesse R.</div>
     </div>
-    <div class="label">My Navigator:</div>
-    <div class="name">Jesse R.</div>
-  </div>
+  {/if}
 </div>
 
 <button class="hamburger" on:click={showNavbar}>
@@ -91,6 +104,15 @@
 
 
 <style>
+
+  h3 {
+    padding: 0 0 4px 2px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin: 40px 0 0 0;
+    color: var(--grey);
+    text-transform: uppercase;
+    font-size: 11px;
+  }
 
   .navbar {
     position: fixed;

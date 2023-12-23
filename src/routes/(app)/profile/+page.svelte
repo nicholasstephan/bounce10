@@ -9,7 +9,7 @@
   $: children = firestore({
     url: 'children',
     where: [
-      ['parents', 'array-contains', $auth.id]
+      ['parents', 'array-contains', $auth?.id]
     ]
   });
 

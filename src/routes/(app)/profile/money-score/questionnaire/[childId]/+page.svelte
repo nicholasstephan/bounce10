@@ -268,7 +268,7 @@
     else {
       for(let question of activity[0].questions) {
         if (!question.answer) {
-          goto(`/profile/money-score/questionnaire/${childId}/${activity.questions.indexOf(question)}`, { replaceState: true });
+          goto(`/profile/money-score/questionnaire/${childId}/${activity[0].questions.indexOf(question)}`, { replaceState: true });
           break;
         }
       }

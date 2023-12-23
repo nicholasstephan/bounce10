@@ -13,7 +13,9 @@
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"test:unit": "vitest",
+		"deploy": "firebase deploy",
+		"deploy-app": "firebase deploy --only hosting"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",

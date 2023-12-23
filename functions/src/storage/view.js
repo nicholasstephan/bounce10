@@ -192,7 +192,6 @@ module.exports = onRequest(async (req, res) => {
   }
 
   function generateImage(originalFile) {
-
     return new Promise(async resolve => {
       // Create a read stream from storage.
       // Note, exclude validation when on the emulator.

@@ -14,8 +14,6 @@
   $: moneyScore = firestore(`/activity/${$activity?.[0]?.id}`);
   $: question = $moneyScore?.questions[questionNumber];
 
-  $: console.log(`/activity/${$activity?.[0]?.id}`, $moneyScore);
-
   $: sectionIndex = Object.entries($moneyScore?.questions || [])
     .filter(([index, q]) => q.section == question?.section)
     .findIndex(([index, q]) => index == questionNumber) + 1;

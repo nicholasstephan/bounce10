@@ -30,7 +30,9 @@
     color: var(--grey);
   }
 
-  input :global(+ input) {
+  input :global(+ input),
+  input :global(+ .input),
+  :global(.input) + input {
     margin-top: 16px;
   }
 

@@ -14,8 +14,6 @@
   --money-score-green: #5d9158;
   --fish-blue: #3a7fc9;
   --value-mapping-red: #f93941;
-
-
 }
 
 * {
@@ -56,7 +54,6 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   display: block;
-  width: 100%;
   padding: 0;
   margin: 32px 0 16px;
   text-align: left;

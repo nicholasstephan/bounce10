@@ -54,6 +54,7 @@
       loading = false;
       return;
     }
+
     goto("/signup/family");
   }
 
@@ -61,7 +62,11 @@
 
 <Card>
   
-  {#if $isLoggedIn === false}
+  {#if loading}
+  
+      <Loading/>
+      
+  {:else if $isLoggedIn === false}
 
     <h2>Create an Account</h2>
       

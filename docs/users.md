@@ -17,3 +17,4 @@ User data is stored in firestore `/users/{user id}`. User ids are synced with fi
 | ---              | ---
 | manageChildren   | Allows users's to maintain child profiles.
 | adminUsers       | Allows user to manage other user accounts.
+| adminLibrary     | Allows user to manage library items.

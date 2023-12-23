@@ -22,14 +22,19 @@
 			return res;
 		}, 0);
 
-		let total = $moneyScore.questions.filter((q) => q.section == section).length;
-		let average = Math.round(count / total);
-		let score = average / 5;
+		let total = $moneyScore.questions.reduce((res, q) => {
+			if (q.section == section) {
+				res += 5;
+			}
+			return res;
+		}, 0);
 
-		return { ...res, [section]: { count, total, average, score } };
+		
+		let score = count / total;
+
+		return { ...res, [section]: { count, total, score } };
 	}, {});
 
-	$: console.log(progress);
 </script>
 
 <div class="container">
