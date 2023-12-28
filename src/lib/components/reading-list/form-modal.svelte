@@ -12,19 +12,11 @@
   let title = item?.title || "";
   let subtitle = item?.subtitle || "";
   let thumbnail = item?.thumbnail || "";
-  let type = item?.type || "pdf";
-  let file = item?.file || null;
   let url = item?.url || "";
 
   function close() {
     if(!item || thumbnail != item?.thumbnail) {
       remove(thumbnail);
-    }
-    if(!item || file != item?.file) {
-      remove(file);
-    }
-    if(file && (item?.type != 'image' || item?.type != 'video')) {
-      remove(file);
     }
     dispatch('close');
   }
@@ -35,8 +27,6 @@
       title,
       subtitle,
       thumbnail,
-      type,
-      file,
       url
     }
     dispatch('save', newItem);
@@ -60,56 +50,14 @@
     <Input placeholder="Subtitle" bind:value={subtitle}/>
 
     <InputImage 
-      folder="library-thumbnails" 
-      width={600}
-      height={400}
+      folder="reading-list-thumbnails" 
+      width={400}
+      height={600}
       placeholder="Thumbnail" 
       bind:value={thumbnail}
     />
-
-    <InputRadio 
-      options={[
-        {label: "Image", value: "image"},
-        {label: "Video", value: "video"},
-        {label: "PDF", value: "pdf"},
-        {label: "Website", value: "website"},
-        {label: "Vimeo Link", value: "vimeo"},
-        {label: "Youtube Link", value: "youtube"},
-      ]}
-      bind:value={type}
-    />
-
-    {#if type == "image"}
-      <InputImage 
-        folder="library" 
-        width={600}
-        height={400}
-        placeholder="Image" 
-        bind:value={file}
-      />
-    {:else if type == "video"}
-      <InputImage 
-        folder="library" 
-        width={600}
-        height={400}
-        placeholder="Video" 
-        bind:value={file}
-      />
-    {:else if type == "pdf"}
-      <InputImage 
-        folder="library" 
-        width={600}
-        height={400}
-        placeholder="PDF" 
-        bind:value={file}
-      />
-    {:else if type == "website"}
-      <Input placeholder="Website" bind:value={url}/>
-    {:else if type == "vimeo"}
-      <Input placeholder="Vimeo Link" bind:value={url}/>
-    {:else if type == "youtube"}
-      <Input placeholder="Youtube Link" bind:value={url}/>
-    {/if}
+    
+    <Input placeholder="URL" bind:value={url}/>
   
     <nav>
       <Button on:click={save}>Save</Button>
@@ -157,11 +105,6 @@
 
     background-color: white;
     box-shadow: 8px 8px 32px rgba(0,0,0,0.5);
-  }
-
-  label {
-    display: block;
-    margin-bottom: 16px;
   }
 
   nav {

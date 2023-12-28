@@ -17,8 +17,10 @@
   .input {
     display: inline-flex;
     box-sizing: border-box;
+    flex-wrap: wrap;
     padding: 0;
     border: 1px solid var(--grey);
+    border-radius: 32px;
 
     font-family: inherit;
     font-size: 14px;
@@ -48,12 +50,24 @@
   label {
     padding: 18px 16px 14px;
     color: var(--grey);
+    text-align: center;
     cursor: pointer;
+  }
+
+  label:first-child {
+    padding-left: 24px;
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+  }
+
+  label:last-child {
+    padding-right: 24px;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
   }
 
   label.active {
     color: var(--grey-dark);
-    text-align: center;
     background-color: var(--grey-light);
   }
 

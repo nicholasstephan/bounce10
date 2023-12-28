@@ -34,7 +34,7 @@
     position: relative;
     appearance: none;
     display: inline-block;
-    padding: 8px 24px;
+    padding: 8px 16px;
     border: 0;
     border-radius: 4px;
     background-color: var(--grey-light);

@@ -1,9 +1,11 @@
 <script>
   import auth from '$lib/stores/auth';
-
-  import { Button } from '$lib/components';
-  import AddModal from '$lib/components/library/form-modal.svelte';
 	import firestore from 'fire-stream/firestore';
+
+  import { Tab, Filter } from '$lib/components';
+  import AddModal from '$lib/components/library/form-modal.svelte';
+  import Thumbnail from '$lib/components/library/thumbnail.svelte';
+  
 
   let isAdding = false;
   const toggleAdding = () => isAdding = !isAdding;
@@ -13,6 +15,18 @@
     isAdding = false;
   }
 
+  let filter = null;
+  let sort = null;
+
+  $: items = firestore({
+    url: 'library',
+    orderBy: sort == "Date" ? "dateCreated" : "title",
+    direction: sort == "Date" ? 'desc' : 'asc',
+    where: filter == 'Videos' ? [['type', 'in', ['vimeo', 'youtube', 'video']]] :
+           filter == 'Documents' ? [['type', 'in', ['pdf']]] :
+           filter == 'Links' ? [['type', 'in', ['website']]] : []
+  });
+
 </script>
 
 <header>
@@ -21,13 +35,26 @@
 
 <nav>
 
+  <Filter placeholder="Filter..." options={["Videos", "Documents", "Links"]} bind:value={filter}/>
+  <Filter placeholder="Sort..." options={["Date", "Title"]} bind:value={sort}/>
+
   {#if $auth?.permissions?.adminLibrary}
-    <Button on:click={toggleAdding}>
+    <div class="spacer">|</div>
+    <Tab on:click={toggleAdding}>
       Add Item
-    </Button>
+    </Tab>
   {/if}
 
 </nav>
+
+<div class="grid">
+
+  {#each $items || [] as item}
+    <Thumbnail {item}/>
+  {/each}
+
+
+</div>
 
 
 {#if isAdding}
@@ -47,6 +74,23 @@
     line-height: 24px;
     font-weight: normal;
     text-transform: uppercase;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .spacer {
+    color: var(--grey);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-gap: 32px;
   }
 
 </style>

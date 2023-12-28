@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Lexend:wght@400;700&display=swap');
 
 :root {
 
@@ -26,13 +26,14 @@ html, body {
 }
 
 body {
-  font-family: 'Jost', sans-serif;
+  font-family: 'Lexend', sans-serif;
   font-weight: 400;
   background: var(--grey-light);
+  color: var(--grey-dark);
 }
 
 p, a, span, button {
-  font-family: 'Jost', sans-serif;
+  font-family: 'Lexend', sans-serif;
 }
 
 p {

@@ -2,8 +2,8 @@
 
 All stored files have a corresponding document in `/storage/{file id}`. 
 
-| Property | Description
-| ---      | ---
+| Property         | Description
+| ---              | ---
 | dateCreated
 | folder
 | name
@@ -26,3 +26,13 @@ If the file is removed with the `remove` utility, that count is decremented. If 
 
 Interact with file storage through `storage.js` utility.
 
+### url()
+
+Param
+
+| Param           | Type     | Description
+| ---             | ---      | ---
+| id              | string   | The id of the storage item to get the url for.
+| options         | object   | (optional) Options for the url.
+| options.width   | number   | (optional) The width of the image to get the url for.
+| options.height  | number   | (optional) The height of the image to get the url for.

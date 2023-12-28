@@ -1,7 +1,8 @@
 <script>
+  import { range } from 'lodash';
+
   export let value = null;
 
-  
   export let low = "";
   export let high = "";
   export let min = 1;
@@ -13,10 +14,17 @@
 </script>
 
 <div class="container" style="--color:{color}">
-  <button class="label" on:click={() => value = min}>
-    {low}
-  </button>
+  {#if low}
+    <button class="label" on:click={() => value = min}>
+      {low}
+    </button>
+  {/if}
   <div class="slider">
+    <div class="values">
+      {#each range(min, max+1) as i}
+        <button on:click={() => value = i}>{i}</button>
+      {/each}
+    </div>
     <input 
       type="range" 
       min={min} 
@@ -26,9 +34,11 @@
       on:change
     />
   </div>
-  <button class="label" on:click={() => value = max}>
-    {high}
-  </button>
+  {#if high}
+    <button class="label" on:click={() => value = max}>
+      {high}
+    </button>
+  {/if}
 </div>
 
 
@@ -43,6 +53,23 @@
   .slider {
     flex: 1;
     margin: 0 16px;
+  }
+
+  .values {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 4px 0;
+  }
+
+  .values button {
+    appearance: none;
+    background: none;
+    border: none;
+    width: 24px;
+    text-align: center;
+    cursor: pointer;
   }
 
   .label {
@@ -66,13 +93,14 @@
     -webkit-appearance: none;
     appearance: none;
     position: relative;
-    top: -8px;
+    top: -4px;
 
     width: 24px;
     height: 24px;
     border-radius: 12px; 
-    background: var(--color);
-    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.4);
+    background: var(--grey-light);
+    box-shadow: inset -4px -4px 4px rgba(0,0,0,0.1),
+                0px 0px 2px 0px rgba(0,0,0,0.4);
     cursor: pointer;
 
     transition: all 200ms ease-in-out;
@@ -87,7 +115,7 @@
     width: 24px;
     height: 24px;
     border-radius: 12px; 
-    background: var(--color);
+    background: var(--grey-light);
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.4);
     cursor: pointer;
 
@@ -103,7 +131,7 @@
     width: 24px;
     height: 24px;
     border-radius: 12px; 
-    background: var(--color);
+    background: var(--grey-light);
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.4);
     cursor: pointer;
 
@@ -111,7 +139,8 @@
   }
 
   input[type="range"]:hover::-webkit-slider-thumb {
-    box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    box-shadow: inset -4px -4px 4px rgba(0,0,0,0.1),
+                0px 0px 2px 0px rgba(0,0,0,0.4);
   }
   
   input[type="range"]:hover::-moz-range-thumb {
@@ -124,23 +153,26 @@
 
   input[type="range"]::-webkit-slider-runnable-track {
     cursor: pointer;
-    height: 8px;
-    border-radius: 4px;
+    height: 16px;
+    border-radius: 8px;
     background: var(--color);
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
   }
 
   input[type="range"]::-moz-range-track {
     cursor: pointer;
-    height: 8px;
-    border-radius: 4px;
+    height: 16px;
+    border-radius: 8px;
     background: var(--color);
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
   }
 
   input[type="range"]::-ms-track {
     cursor: pointer;
-    height: 8px;
-    border-radius: 4px;
+    height: 16px;
+    border-radius: 8px;
     background: var(--color);
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
   }
 
 

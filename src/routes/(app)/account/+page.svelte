@@ -1,20 +1,28 @@
 <script>
   import { Loading, Button } from '$lib/components';
+  import Children from '$lib/components/family/children.svelte';
 </script>
 
-<h1>Account</h1>
+<header>
+  <h1>Account</h1>
+</header>
+
 <nav>
   <Button href="/logout">Log out</Button>
 </nav>
 
-<div>
-  <Loading message="Coming Soon"/>
-</div>
-
 <style>
 
-  div {
-    padding: 240px 0;
+  header {
+    padding: 64px 0 32px;
+  }
+
+  h1 {
+    color: var(--grey-dark);
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: normal;
+    text-transform: uppercase;
   }
 
 </style>

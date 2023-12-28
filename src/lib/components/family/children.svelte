@@ -1,9 +1,7 @@
 <script>
   import firestore from 'fire-stream/firestore';
   import auth from '$lib/stores/auth';
-	import { goto } from '$app/navigation';
   import { url } from '$lib/utils/storage';
-  import { Card, Loading, Button } from '$lib/components';
 
   let loading = false;
 
@@ -18,44 +16,35 @@
     }
     loading = true;
 
-    let doc = firestore('children').add({
+    let doc = await firestore('children').add({
       parents: [$auth?.id],
       status: "ACTIVE"
     });
-    
-    goto(`/signup/family/${doc.id}/info`);
   }
-  
+
 </script>
 
-<Card>
-  {#if $children?.length == 0}
+{#if $children?.length == 0}
 
-    <h2>Add Children</h2>
+  <button on:click={addChild} class="new-button">
+    <i class="fa-thin fa-plus"></i>
+  </button>
+
+{:else if $children?.length > 0}
+
+  <div class="children">
+    {#each $children as child}
+      <a class="child" href="/signup/family/{child.id}/info">
+        <img src="{url(child.avatar)}" alt="" class="avatar"/>
+        <p class="name">{child.name || ""}</p>
+      </a>
+    {/each}
     <button on:click={addChild} class="new-button">
       <i class="fa-thin fa-plus"></i>
     </button>
+  </div>
 
-  {:else if $children?.length > 0}
-
-    <div class="children">
-      {#each $children as child}
-        <a class="child" href="/signup/family/{child.id}/info">
-          <img src="{url(child.avatar)}" alt="" class="avatar"/>
-          <p class="name">{child.name || ""}</p>
-        </a>
-      {/each}
-      <button on:click={addChild} class="new-button">
-        <i class="fa-thin fa-plus"></i>
-      </button>
-    </div>
-
-    <nav>
-      <Button href="/discover">Get Started</Button>
-    </nav>
-
-  {/if}
-</Card>
+{/if}
 
 
 <style>
@@ -114,11 +103,5 @@
     font-size: 32px;
     color: var(--grey-dark);
   }
-
-  nav {
-    margin: 40px 0 0;
-  }
   
-  
-
 </style>

@@ -24,6 +24,19 @@
 
   $: isLast = questionNumber == $moneyScore?.questions.length - 1;
 
+  $: color = questionNumber < 5 ? "#fcb62b" : 
+             questionNumber < 10 ? "#d74310" : 
+             questionNumber < 15 ? "#3a86c3" : 
+             questionNumber < 20 ? "#0cbaee" : 
+             questionNumber < 25 ? "#f5912c" : 
+             questionNumber < 30 ? "#eb4194" : 
+             questionNumber < 35 ? "#90b455" : 
+             questionNumber < 40 ? "#a3a0cd" : 
+             questionNumber < 45 ? "#27af50" : 
+             questionNumber < 50 ? "#ea1c2a" :
+             "var(--grey)" 
+
+
   let answer = 3;
 
   function handleChange(e) {
@@ -57,7 +70,7 @@
         <p class="count"><em>{sectionIndex}</em> of {sectionCount}</p>
         <h3>{question.question || ""}</h3>
         <div class="answer">
-          <InputSlider value={$moneyScore.questions[questionNumber].answer} high="Yes" low="No" on:change={handleChange}/>
+          <InputSlider value={$moneyScore.questions[questionNumber].answer} on:change={handleChange} color={color}/>
         </div>
         <nav>
           <Button color="var(--money-score-green)" on:click={next}>
