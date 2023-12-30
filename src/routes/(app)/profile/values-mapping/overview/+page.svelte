@@ -4,7 +4,7 @@
 </div>
 
 <div class="image">
-  <img src="/img/value-mapping.jpg" alt="Value Mapping"/>
+  <img src="/img/values-mapping.jpg" alt="Values Mapping"/>
 </div>
 
 

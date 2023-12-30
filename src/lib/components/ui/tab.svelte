@@ -3,7 +3,7 @@
   import { page } from '$app/stores';
 
   export let href = "";
-  export let color = 'var(--blue)';
+  export let color = 'var(--red)';
   export let active = null;
 
   $: isActive = active === null ? $page.url.pathname.includes(href) : active;

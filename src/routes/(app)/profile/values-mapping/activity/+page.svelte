@@ -3,14 +3,14 @@
   import firestore from 'fire-stream/firestore';
   import auth from '$lib/stores/auth';
   
-  $: activity = getActivity($auth.id, 'valuemapping');
-  $: valueMapping = firestore(`/activity/${$activity?.[0]?.id}`);
+  $: activity = getActivity($auth.id, 'valuesmapping');
+  $: valuesMapping = firestore(`/activity/${$activity?.[0]?.id}`);
 
   // If there's no value mapping, create one.
   $: if($activity?.length === 0) {
     createActivity({
-      type: "valuemapping",
-      name: "Value Mapping",
+      type: "valuesmapping",
+      name: "Values Mapping",
       words: [],
     });
   }
@@ -66,7 +66,7 @@
     "Positivity",
     "Resourcefulness",
     "Self-discipline",
-    ...($valueMapping?.words || []),
+    ...($valuesMapping?.words || []),
   ].reduce((acc, word) => {
     if(!acc.includes(word)) {
       acc.push(word);
@@ -76,7 +76,7 @@
 
   function addWord() {
     if(newWord) {
-      $valueMapping.words = [...$valueMapping.words, newWord];
+      $valuesMapping.words = [...$valuesMapping.words, newWord];
       newWord = "";
     }
   
@@ -89,7 +89,7 @@
   <p>Take a photo of the completed project and upload it to the portal.</p>
 </article>
 
-{#if $valueMapping}
+{#if $valuesMapping}
   <div class="form">
 
     <form on:submit|preventDefault={addWord}>
@@ -100,7 +100,7 @@
     <div class="words">
       {#each options as word}
         <label class="word">
-          <input type="checkbox" name={word} value={word} bind:group={$valueMapping.words}/>
+          <input type="checkbox" name={word} value={word} bind:group={$valuesMapping.words}/>
           {word}
         </label>
       {/each}
@@ -147,7 +147,7 @@
     padding: 8px 32px;
     border: none;
     border-radius: 20px;
-    background: var(--value-mapping-red);
+    background: var(--values-mapping-red);
     color: white;
     font-size: 18px;
     line-height: 24px;
@@ -168,7 +168,7 @@
   }
   
   .word:has(input:checked) {
-    background: var(--value-mapping-red);
+    background: var(--values-mapping-red);
     color: white;
   }
 

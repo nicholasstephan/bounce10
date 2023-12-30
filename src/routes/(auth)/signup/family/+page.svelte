@@ -18,7 +18,7 @@
     }
     loading = true;
 
-    let doc = firestore('children').add({
+    let doc = await firestore('children').add({
       parents: [$auth?.id],
       status: "ACTIVE"
     });

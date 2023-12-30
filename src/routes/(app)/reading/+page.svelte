@@ -1,4 +1,5 @@
 <script>
+  
   import auth from '$lib/stores/auth';
 	import firestore from 'fire-stream/firestore';
 
@@ -15,7 +16,6 @@
     isAdding = false;
   }
 
-  let filter = null;
   let sort = null;
 
   $: items = firestore({

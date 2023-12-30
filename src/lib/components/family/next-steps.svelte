@@ -14,9 +14,9 @@
       <img src="/img/fish.svg" alt="Money Score"/>
       <Button color="rgba(255,255,255,0.2)" href="/profile/fish">Start</Button>
     </div>
-    <div class="value-mapping activity">
-      <img src="/img/value-mapping.svg" alt="Money Score"/>
-      <Button color="rgba(255,255,255,0.2)" href="/profile/value-mapping">Start</Button>
+    <div class="values-mapping activity">
+      <img src="/img/values-mapping.svg" alt="Money Score"/>
+      <Button color="rgba(255,255,255,0.2)" href="/profile/values-mapping">Start</Button>
     </div>
     <div class="money-score activity">
       <img src="/img/money-score.svg" alt="Money Score"/>
@@ -69,8 +69,8 @@
     background-color: var(--fish-blue);
   }
 
-  .value-mapping {
-    background-color: var(--value-mapping-red);
+  .values-mapping {
+    background-color: var(--values-mapping-red);
   }
 
   .money-score {

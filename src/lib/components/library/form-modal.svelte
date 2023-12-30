@@ -29,18 +29,27 @@
     dispatch('close');
   }
 
-  function save() {
+  function saveItem() {
     const newItem = {
-      dateCreated: (new Date()).toISOString(),
       title,
       subtitle,
       thumbnail,
       type,
       file,
       url
+    };
+
+    if(!item?.id) {
+      newItem.dateCreated = (new Date()).toISOString();
     }
+
     dispatch('save', newItem);
   }
+
+  function removeItem() {
+    dispatch('remove', item);
+  }
+
 </script>
 
 <button class="overlay" on:click={close} transition:fade>
@@ -73,8 +82,8 @@
         {label: "Video", value: "video"},
         {label: "PDF", value: "pdf"},
         {label: "Website", value: "website"},
-        {label: "Vimeo Link", value: "vimeo"},
-        {label: "Youtube Link", value: "youtube"},
+        {label: "Vimeo", value: "vimeo"},
+        {label: "Youtube", value: "youtube"},
       ]}
       bind:value={type}
     />
@@ -112,10 +121,14 @@
     {/if}
   
     <nav>
-      <Button on:click={save}>Save</Button>
+      <Button on:click={saveItem}>Save</Button>
       <Button on:click={close} color="var(--grey-light)" textColor="var(--grey-dark)">
         Cancel
       </Button>
+      <div style="flex:1"/>
+      {#if item?.id}
+        <Button on:click={removeItem} color="var(--grey-light)" textColor="var(--grey-dark)">Remove</Button>
+      {/if}
     </nav>
 
   </button>
@@ -159,14 +172,9 @@
     box-shadow: 8px 8px 32px rgba(0,0,0,0.5);
   }
 
-  label {
-    display: block;
-    margin-bottom: 16px;
-  }
-
   nav {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     gap: 16px;
     margin: 16px 0 0 0;
   }

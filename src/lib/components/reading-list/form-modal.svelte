@@ -3,7 +3,7 @@
   import { fade, fly } from 'svelte/transition';
   import { remove } from '$lib/utils/storage';
 
-  import { Button, Input, InputImage, InputRadio } from '$lib/components';
+  import { Button, Input, InputImage } from '$lib/components';
   
   const dispatch = createEventDispatcher();
 
@@ -21,16 +21,25 @@
     dispatch('close');
   }
 
-  function save() {
+  function saveItem() {
     const newItem = {
-      dateCreated: (new Date()).toISOString(),
       title,
       subtitle,
       thumbnail,
       url
+    };
+
+    if(!item?.id) {
+      newItem.dateCreated = (new Date()).toISOString();
     }
+    
     dispatch('save', newItem);
   }
+
+  function removeItem() {
+    dispatch('remove', item);
+  }
+
 </script>
 
 <button class="overlay" on:click={close} transition:fade>
@@ -60,10 +69,14 @@
     <Input placeholder="URL" bind:value={url}/>
   
     <nav>
-      <Button on:click={save}>Save</Button>
+      <Button on:click={saveItem}>Save</Button>
       <Button on:click={close} color="var(--grey-light)" textColor="var(--grey-dark)">
         Cancel
       </Button>
+      <div style="flex:1"/>
+      {#if item?.id}
+        <Button on:click={removeItem} color="var(--grey-light)" textColor="var(--grey-dark)">Remove</Button>
+      {/if}
     </nav>
 
   </button>
@@ -109,7 +122,7 @@
 
   nav {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     gap: 16px;
     margin: 16px 0 0 0;
   }

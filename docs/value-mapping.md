@@ -1,10 +1,10 @@
-# Value Mapping
+# Values Mapping
 
-Value Mapping is an [activity](./activities.md). It is stored in firestore `/activities/{activity id}`.
+Values Mapping is an [activity](./activities.md). It is stored in firestore `/activities/{activity id}`.
 
 | Property      | Description
 | ---           | ---
-| type         | "valuemapping"
-| name          | "Value Mapping"
+| type         | "valuesmapping"
+| name          | "Values Mapping"
 | words         | Array of strings. The words that are mapped.
 | image         | A [storage](./storage.md) id.

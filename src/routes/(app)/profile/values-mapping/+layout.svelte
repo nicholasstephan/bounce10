@@ -6,7 +6,7 @@
 	<article>
 		<header>
       <h1>
-			  <img src="/img/value-mapping.svg" alt="Value Mapping"/>
+			  <img src="/img/values-mapping.svg" alt="Values Mapping"/>
       </h1>
 			<h3>
 				This assessment for the whole family helps you identify what matters 
@@ -15,13 +15,13 @@
 		</header>
 
 		<nav class="tabs">
-			<Tab color="var(--value-mapping-red)" href="/profile/value-mapping/overview">
+			<Tab color="var(--values-mapping-red)" href="/profile/values-mapping/overview">
         Understanding VM
       </Tab>
-			<Tab color="var(--value-mapping-red)" href="/profile/value-mapping/activity">
+			<Tab color="var(--values-mapping-red)" href="/profile/values-mapping/activity">
         Doing VM
       </Tab>
-			<Tab color="var(--value-mapping-red)" href="/profile/value-mapping/continuing">
+			<Tab color="var(--values-mapping-red)" href="/profile/values-mapping/continuing">
         Continuing VM
       </Tab>
 		</nav>
@@ -63,7 +63,7 @@
 		height: 240px;
 		margin-top: -80px;
 		border-radius: 120px;
-		background-color: var(--value-mapping-red);
+		background-color: var(--values-mapping-red);
 
 		text-align: center;
 		font-size: 40px;
@@ -76,7 +76,7 @@
   }
 
 	h3 {
-		color: var(--value-mapping-red);
+		color: var(--values-mapping-red);
 	}
 
   .tabs {

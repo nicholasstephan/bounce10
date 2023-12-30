@@ -1,8 +1,5 @@
 <script>
-  import { Loading } from '$lib/components';
-
-  import NextSteps from '$lib/components/activities/next-steps.svelte';
-
+  import NextSteps from '$lib/components/family/next-steps.svelte';
 </script>
 
 <div class="container">

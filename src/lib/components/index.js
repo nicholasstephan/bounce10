@@ -3,6 +3,7 @@
 export { default as Card } from './ui/card.svelte';
 export { default as Filter } from './ui/filter.svelte';
 export { default as Loading } from './ui/loading.svelte';
+export { default as Modal } from './ui/modal.svelte';
 export { default as Tab } from './ui/tab.svelte';
 
 

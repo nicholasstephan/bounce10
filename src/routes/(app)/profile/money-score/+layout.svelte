@@ -43,10 +43,11 @@
 
 <style>
 	section {
-    background-color: white;
+    max-width: 1200px;
     min-height: 2000px;
 		padding: 16px 16px 16px 16px;
-		margin: 120px 0 0 0;
+		margin: 120px auto 0;
+    background-color: white;
 	}
 
 	article {

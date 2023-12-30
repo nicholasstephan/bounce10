@@ -1,8 +1,7 @@
 <script>
   import { getMyChildren } from '$lib/stores/children';
 
-  import Card from '$lib/components/activities/money-score-status.svelte';
-
+  import Card from '$lib/components/money-score/money-score-status.svelte';
   $: children = getMyChildren();
 </script>
 
